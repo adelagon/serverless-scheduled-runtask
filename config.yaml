@@ -18,4 +18,4 @@ schedules:
       type: fargate
       name: CreateReport
       cron:
-        "cron(0/1 * * * ? *)"
+        "cron(0 * * * ? *)"
