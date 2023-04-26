@@ -15,7 +15,7 @@ schedules:
       cron:
         "cron(0 * * * ? *)"
   - task:
-      type: ecs_run_task
-      name: CreatReport
+      type: fargate
+      name: CreateReport
       cron:
-        "cron(0/5 * * * ? *)"
+        "cron(0/1 * * * ? *)"
