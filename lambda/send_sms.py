@@ -23,5 +23,5 @@ def handler(event, context):
             PhoneNumber=os.environ.get("MSISDN"),
             Message=os.environ.get("MESSAGE")
         )
-    except:
-        print ("Error", sys.exc_info()[0])
+    except Exception as e:
+        print ("Error", e)
