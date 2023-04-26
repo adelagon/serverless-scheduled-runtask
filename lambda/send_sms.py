@@ -19,6 +19,8 @@ def handler(event, context):
             }
         )
 
+        print ("Sending message to: {}".format(os.environ.get("msisdn")))
+        
         response = sns.publish(
             PhoneNumber=os.environ.get("msisdn"),
             Message=os.environ.get("message")
