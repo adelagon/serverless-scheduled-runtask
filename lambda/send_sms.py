@@ -11,7 +11,7 @@ def handler(event, context):
             aws_secret_access_key=os.environ.get("AWS_USER_SECRET_KEY")
         )
 
-        client.set_sms_attributes(
+        sns.set_sms_attributes(
             attributes={
                 "DefaultSMSType": "Transactional",
                 "DeliveryStatusSuccessSamplingRate": "100",
