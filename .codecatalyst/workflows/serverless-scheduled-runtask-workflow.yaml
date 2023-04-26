@@ -9,7 +9,7 @@ Triggers:
 
 # Required - Define action configurations.
 Actions:
-  AWSCDKdeploy_f8:
+  cdk_deploy:
     Identifier: aws/cdk-deploy@v1.0.4
     Configuration:
       Region: ap-southeast-1
