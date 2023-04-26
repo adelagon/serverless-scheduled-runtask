@@ -65,8 +65,12 @@ class ServerlessScheduledRuntaskStack(Stack):
                     self, task_name,
                     cluster=cluster,
                     scheduled_fargate_task_image_options=ecs_patterns.ScheduledFargateTaskImageOptions(
-                        image=ecs.ContainerImage.from_registry("amazon/amazon-ecs-sample"),
-                        memory_limit_mib=512
+                        image=ecs.ContainerImage.from_registry("amazonlinux/amazonlinux:latest"),
+                        memory_limit_mib=512,
+                        command=['sh', '-c', 'sleep 5 && date'],
+                        log_driver=ecs.LogDrivers.aws_logs(
+                            stream_prefix=task_name
+                        )
                     ),
                     schedule=appscaling.Schedule.expression(sched['task']['cron']),
                     platform_version=ecs.FargatePlatformVersion.LATEST
