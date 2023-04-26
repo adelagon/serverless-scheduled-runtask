@@ -13,8 +13,9 @@ schedules:
         - msisdn: "+639399106689"
         - message: "Hello from AWS"
       cron:
-        "cron(0 * * * * *)"
+        "cron(0 * * * ? *)"
   - task:
       type: ecs_run_task
+      name: CreatReport
       cron:
         "cron(0/5 * * * ? *)"
