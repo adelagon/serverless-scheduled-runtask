@@ -20,8 +20,8 @@ def handler(event, context):
         )
 
         response = sns.publish(
-            PhoneNumber=os.environ.get("MSISDN"),
-            Message=os.environ.get("MESSAGE")
+            PhoneNumber=os.environ.get("msisdn"),
+            Message=os.environ.get("message")
         )
     except Exception as e:
         print ("Error", e)

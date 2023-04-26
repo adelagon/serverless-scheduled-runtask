@@ -14,23 +14,9 @@ class ServerlessScheduledRuntaskStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, config: dict, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # roles
-        # scheduler_role = iam.Role(
-        #     self, "SchedulerRole",
-        #     assumed_by=iam.ServicePrincipal("scheduler.amazonaws.com")
-        # )
-
-        # scheduler_events_policy = iam.PolicyStatement(
-        #     actions=["events:PutEvents"],
-        #     resources=[event_bus.event_bus_arn],
-        #     effect=iam.Effect.ALLOW
-        # )
-
-        # scheduler_role.add_to_policy(scheduler_events_policy)
-
-
+        ### create schedules & tasks
         for sched in config['schedules']:
-            # Configure lambda-type tasks
+            ## Configure lambda-type tasks
             if sched['task']['type'] == "lambda":
                 task_name = sched['task']['name']
                 task_handler = sched['task']['handler']
