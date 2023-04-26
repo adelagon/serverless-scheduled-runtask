@@ -1,9 +1,3 @@
-msisdn:
-  "+639399106689"
-
-message:
-  "Hello from AWS"
-
 schedules:
   - task:
       type: lambda
