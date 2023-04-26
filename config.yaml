@@ -13,8 +13,8 @@ schedules:
         - msisdn: "639399106689"
         - message: "Hello from AWS"
       cron:
-        "cron(*/1 * * * * *)"
+        "cron(0/1 * * * * *)"
   - task:
       type: ecs_run_task
       cron:
-        "cron(*/5 * * * * *)"
+        "cron(0/5 * * * * *)"
