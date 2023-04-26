@@ -17,6 +17,7 @@ schedules:
   - task:
       type: fargate
       name: CreateReport
+      image: public.ecr.aws/amazonlinux/amazonlinux:latest
       command:
         - sh
         - -c
