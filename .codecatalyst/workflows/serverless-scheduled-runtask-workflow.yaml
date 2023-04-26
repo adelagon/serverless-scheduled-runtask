@@ -1,0 +1,24 @@
+Name: serverless-scheduled-runtask-workflow
+SchemaVersion: "1.0"
+
+# Optional - Set automatic triggers.
+Triggers:
+  - Type: Push
+    Branches:
+      - main
+
+# Required - Define action configurations.
+Actions:
+  AWSCDKdeploy_f8:
+    Identifier: aws/cdk-deploy@v1.0.4
+    Configuration:
+      Region: ap-southeast-1
+      StackName: ServerlessScheduledRuntaskStack
+    Environment:
+      Connections:
+        - Role: CodeCatalystPreviewDevelopmentAdministrator-y4kwwj
+          Name: adelagon-isengard
+      Name: development
+    Inputs:
+      Sources:
+        - WorkflowSource
