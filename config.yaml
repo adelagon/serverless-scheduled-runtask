@@ -21,6 +21,6 @@ schedules:
       command:
         - sh
         - -c
-        - sleep 30 && date
+        - now=$(date) && echo "Hello there, the cuirrent date & time is $now" && sleep 30
       cron:
         "cron(0/1 * * * ? *)"
