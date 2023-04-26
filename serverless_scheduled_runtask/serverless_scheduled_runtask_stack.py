@@ -49,15 +49,22 @@ class ServerlessScheduledRuntaskStack(Stack):
            
                 rule = events.Rule(
                     self, "{}Schedule".format(task_name),
-                    #event_pattern=events.EventPattern(
-                    #    source=["sms.events"]
-                    #),
+
                     schedule=events.Schedule.expression(sched['task']['cron']),
                     targets=[
                         targets.LambdaFunction(lambda_func)
                     ]
                 )
         
+                sns_policy = iam.PolicyStatement(
+                    actions=["sns:*"],
+                    resources=["*"],
+                    effect=iam.Effect.ALLOW
+                )
+
+                lambda_func.add_to_role_policy(sns_policy)
+        
+
 
         
         
