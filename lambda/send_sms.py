@@ -19,7 +19,7 @@ def handler(event, context):
             }
         )
 
-        response = client.publish(
+        response = sns.publish(
             PhoneNumber=os.environ.get("MSISDN"),
             Message=os.environ.get("MESSAGE")
         )
