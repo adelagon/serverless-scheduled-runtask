@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 import os
-
+import yaml
 import aws_cdk as cdk
 
 from serverless_scheduled_runtask.serverless_scheduled_runtask_stack import ServerlessScheduledRuntaskStack
 
+with open("./config.yaml") as stream:
+    config = yaml.safe_load(stream)
 
 app = cdk.App()
-ServerlessScheduledRuntaskStack(app, "ServerlessScheduledRuntaskStack",
+ServerlessScheduledRuntaskStack(app, "ServerlessScheduledRuntaskStack", config
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.

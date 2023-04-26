@@ -1,0 +1,20 @@
+msisdn:
+  "+639399106689"
+
+message:
+  "Hello from AWS"
+
+schedules:
+  - task:
+      type: lambda
+      name: SendSMS
+      handler: send_sms.handler
+      environment:
+        - msisdn: "639399106689"
+        - message: "Hello from AWS"
+      cron:
+        "*/1 * * * *"
+  - task:
+      type: ecs_run_task
+      cron:
+        "*/5 * * * *"
