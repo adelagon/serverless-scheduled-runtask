@@ -9,6 +9,15 @@ schedules:
       cron:
         "cron(0 * * * ? *)"
   - task:
+      type: lambda
+      name: SendEmail
+      handler: send_sms.handler
+      environment:
+        - msisdn: "+639399106689"
+        - message: "Hello from AWS"
+      cron:
+        "cron(0/10 * * * ? *)"
+  - task:
       type: fargate
       name: CreateReport
       image: public.ecr.aws/amazonlinux/amazonlinux:latest
