@@ -13,7 +13,7 @@ schedules:
       name: SendEmail
       handler: send_sms.handler
       environment:
-        - msisdn: "+639399106689"
+        - msisdn: "+639191234567"
         - message: "Hello from AWS"
       cron:
         "cron(0/10 * * * ? *)"
